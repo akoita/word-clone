@@ -5,7 +5,7 @@ import styles from "../../styles.css";
 function GuessInput() {
     const [guess, setGuess] = React.useState('')
 
-    return (<form className={styles.guessInputWrapper}
+    return (<form className="guess-input-wrapper"
                   onSubmit={event => {
                       event.preventDefault();
                       console.log(guess);
@@ -13,7 +13,7 @@ function GuessInput() {
                   }}
     >
         <label htmlFor="guess-input">Enter guess:</label>
-        <input id="guess-input" type="text" value={guess}       pattern="[A-Z]{6}"
+        <input id="guess-input" type="text" value={guess}       pattern="[A-Z]{5}"
                onChange={(event) => {
             const inputValue = event.target.value.toString().toUpperCase();
             setGuess(inputValue);
