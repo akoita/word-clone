@@ -1,8 +1,6 @@
 import React from "react";
 
-import styles from "../../styles.css";
-
-function GuessInput() {
+function GuessInput({handleNewGuess}) {
     const [guess, setGuess] = React.useState('')
 
     return (<form className="guess-input-wrapper"
@@ -10,6 +8,8 @@ function GuessInput() {
                       event.preventDefault();
                       console.log(guess);
                       setGuess('');
+                      handleNewGuess(guess);
+
                   }}
     >
         <label htmlFor="guess-input">Enter guess:</label>
