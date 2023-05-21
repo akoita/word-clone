@@ -1,10 +1,11 @@
-import React from "react";
+import React, {useEffect} from "react";
 
 import { sample } from "../../utils";
 import { WORDS } from "../../data";
 import styles from "../../styles.css";
 import GuessInput from "../GuessInput";
 import GuessResults from "../GuessResults";
+import {NUM_OF_GUESSES_ALLOWED} from "../../constants";
 
 // Pick a random word on every pageload.
 const answer = sample(WORDS);
@@ -16,8 +17,10 @@ function Game() {
 
   function handleNewGuess(guess) {
     const nextGuesses = [...guesses];
-    const id=   crypto.randomUUID();
-    nextGuesses.push({guess,id});
+    if(nextGuesses.length === NUM_OF_GUESSES_ALLOWED) {
+      nextGuesses.shift();
+    }
+    nextGuesses.push(guess);
     setGuesses(nextGuesses);
   }
 
