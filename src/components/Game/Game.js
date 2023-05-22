@@ -6,6 +6,7 @@ import styles from "../../styles.css";
 import GuessInput from "../GuessInput";
 import GuessResults from "../GuessResults";
 import {NUM_OF_GUESSES_ALLOWED} from "../../constants";
+import {checkGuess} from "../../game-helpers";
 
 // Pick a random word on every pageload.
 const answer = sample(WORDS);
@@ -20,7 +21,7 @@ function Game() {
     if(nextGuesses.length === NUM_OF_GUESSES_ALLOWED) {
       nextGuesses.shift();
     }
-    nextGuesses.push(guess);
+    nextGuesses.push(checkGuess(guess, answer));
     setGuesses(nextGuesses);
   }
 

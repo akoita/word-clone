@@ -5,12 +5,14 @@ import {GUESS_LENGTH, GUESS_UNIQUE_IDS} from "../../constants";
 
 
 
+
+
 function Guess({ guess }) {
   return !!guess ? (
     <p className="guess">
       {range(guess.length).map((i) => (
-        <span className="cell" key={i}>
-          {guess.charAt(i)}
+        <span className={"cell "+guess[i].status} key={i}>
+          {guess[i].letter}
         </span>
       ))}
     </p>
