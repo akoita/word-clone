@@ -1,7 +1,7 @@
 import React from "react";
 import {GUESS_LENGTH} from "../../constants";
 
-function GuessInput({handleNewGuess}) {
+function GuessInput({handleNewGuess,disabled}) {
     const [guess, setGuess] = React.useState('')
 
     return (<form className="guess-input-wrapper"
@@ -14,7 +14,7 @@ function GuessInput({handleNewGuess}) {
                   }}
     >
         <label htmlFor="guess-input">Enter guess:</label>
-        <input id="guess-input" type="text" value={guess}       pattern={"[A-Z]{"+GUESS_LENGTH+"}"}
+        <input id="guess-input" type="text" value={guess} disabled={disabled} pattern={"[A-Z]{"+GUESS_LENGTH+"}"}
                onChange={(event) => {
             const inputValue = event.target.value.toString().toUpperCase();
             setGuess(inputValue);

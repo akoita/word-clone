@@ -53,3 +53,8 @@ export function checkGuess(guess, answer) {
 
   return result;
 }
+
+
+export function isGuessCorrect(guessResult) {
+  return guessResult.every((char) => char.status === 'correct');
+}

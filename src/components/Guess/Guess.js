@@ -1,7 +1,7 @@
 import React from "react";
 
 import { range } from "../../utils";
-import {GUESS_LENGTH, GUESS_UNIQUE_IDS} from "../../constants";
+import {GUESS_LENGTH} from "../../constants";
 
 
 
