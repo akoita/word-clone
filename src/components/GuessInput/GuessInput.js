@@ -23,6 +23,7 @@ function GuessInput({ handleNewGuess, disabled }) {
         required
         minLength={GUESS_LENGTH}
         maxLength={GUESS_LENGTH}
+        title="5 letter word"
         pattern={"[A-Z]{" + GUESS_LENGTH + "}"}
         onChange={(event) => {
           const inputValue = event.target.value.toString().toUpperCase();
